@@ -207,7 +207,7 @@ func (app *app) SearchDevices(
 		})
 	}
 
-	esRes, err := app.store.SearchDevices(ctx, query)
+	esRes, err := app.store.SearchDevices(ctx, query) // here do we AddTo query last check in here?
 	if err != nil {
 		return nil, 0, err
 	}

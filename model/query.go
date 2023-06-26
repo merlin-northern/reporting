@@ -24,6 +24,7 @@ const (
 	defaultPerPage = 20
 
 	attrDeviceID = "id"
+	attrLastCheckInTime = "check_in_time"
 )
 
 type ArrayOpts int
@@ -509,9 +510,9 @@ func (s *sel) AddTo(q Query) Query {
 	}
 
 	//always include a device id
-	fields = append(fields, "id")
+	fields = append(fields, "id") // here id is added
 
-	//always include a check-in time
+	//always include a check-in time // here
 	fields = append(fields, FieldNameCheckIn)
 
 	return q.With(map[string]interface{}{
@@ -589,7 +590,7 @@ func BuildQuery(params SearchParams) (Query, error) {
 
 	if len(params.Attributes) > 0 {
 		sel := NewSelect(params.Attributes)
-		query = sel.AddTo(query)
+		query = sel.AddTo(query) // here we only add the last check in in here
 	}
 
 	if len(params.DeviceIDs) > 0 {
@@ -611,7 +612,9 @@ func BuildQuery(params SearchParams) (Query, error) {
 func parseSpecialAttr(attr string) string {
 	switch attr {
 	case attrDeviceID:
-		return "id"
+		return "id" // here should we handle deivce check in here as well?
+	case attrLastCheckInTime:
+		return "check_in_time" // here we always include last check-in
 	default:
 		return ""
 	}
