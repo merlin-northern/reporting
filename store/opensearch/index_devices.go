@@ -33,6 +33,9 @@ const indexDevicesTemplate = `{
 				"id": {
 					"type": "keyword"
 				},
+				"check_in_time": {
+					"type": "keyword"
+				},
 				"tenantID": {
 					"type": "keyword"
 				},

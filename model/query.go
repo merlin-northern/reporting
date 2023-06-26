@@ -591,7 +591,15 @@ func BuildQuery(params SearchParams) (Query, error) {
 	if len(params.Attributes) > 0 {
 		sel := NewSelect(params.Attributes)
 		query = sel.AddTo(query) // here we only add the last check in in here
-	}
+	} /* else {
+		query=query.With(map[string]interface{}{
+			"fields":  []string{
+				"id",
+				FieldNameCheckIn,
+			},
+			"_source": true,
+		})
+	} */
 
 	if len(params.DeviceIDs) > 0 {
 		devs := NewDevIDsFilter(params.DeviceIDs)
