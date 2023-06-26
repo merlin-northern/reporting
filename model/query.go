@@ -23,7 +23,7 @@ const (
 	defaultPage    = 0
 	defaultPerPage = 20
 
-	attrDeviceID = "id"
+	attrDeviceID        = "id"
 	attrLastCheckInTime = "check_in_time"
 )
 

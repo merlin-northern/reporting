@@ -441,8 +441,8 @@ func (a *app) storeToInventoryDev(ctx context.Context, tenantID string,
 
 func getTime(m map[string]interface{}, s string) *time.Time {
 	if v, ok := m[s]; ok && v != nil {
-		timeString:=""
-		if vString, ok := v.(string); ok && len(vString) >0 {
+		timeString := ""
+		if vString, ok := v.(string); ok && len(vString) > 0 {
 			timeString = v.(string)
 		}
 		if vArray, ok := v.([]interface{}); ok && len(vArray) > 0 {
